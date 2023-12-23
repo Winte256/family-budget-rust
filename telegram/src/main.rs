@@ -9,7 +9,7 @@ async fn main() {
 
     let bot = Bot::from_env();
 
-    teloxide::delete_webhook(&bot).await;
+    bot.delete_webhook().send().await.log_on_error().await;
 
     teloxide::repl(bot, |bot: Bot, msg: Message| async move {
         bot.send_dice(msg.chat.id).await?;
