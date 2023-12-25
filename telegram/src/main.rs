@@ -28,7 +28,7 @@ async fn main() {
 
         sheets::sheets::write_new_spend(sum, description.to_string()).await;
 
-        let concated = "I write".to_string() + &sum.to_string() + " for " + &description;
+        let concated = "I write ".to_string() + &sum.to_string() + " for " + &description;
 
         bot.send_message(msg.chat.id, concated).await?;
         Ok(())
