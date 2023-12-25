@@ -1,0 +1,10 @@
+FROM rust:latest
+
+WORKDIR /usr/src/telegram
+
+# Install cargo-watch
+RUN cargo install cargo-watch
+
+COPY . .
+
+CMD ["cargo", "watch", "-x", "run"]

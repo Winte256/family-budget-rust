@@ -1,0 +1,15 @@
+version: '3'
+services:
+  telegram:
+    build: ./telegram
+    volumes:
+      - ./telegram:/usr/src/telegram
+    working_dir: /usr/src/telegram
+    command: cargo watch -x run
+    ports:
+      - '8000:8000'
+    environment:
+      - TELOXIDE_TOKEN=${TELOXIDE_TOKEN}
+      - GOOGLE_SHEET_ID=${GOOGLE_SHEET_ID}
+      - GOOGLE_ACCOUNT_CREDS=${GOOGLE_ACCOUNT_CREDS}
+      - RUST_BACKTRACE=1
